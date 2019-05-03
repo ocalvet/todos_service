@@ -1,7 +1,7 @@
 const UnknownError = require('../errors').UnknownError;
 const ModelNotFoundError = require('../errors').ModelNotFoundError;
 
-module.exports = class UsersService {
+module.exports = class TodosService {
   findOne(id) {
     throw new ModelNotFoundError('Error');
     return {

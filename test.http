@@ -1,10 +1,10 @@
-GET http://localhost:6066/api/users
+GET http://localhost:6000/api/todos
 
 ###
-GET http://localhost:6066/api/users/4
+GET http://localhost:6000/api/todos/4
 
 ###
-POST http://localhost:6066/api/users
+POST http://localhost:6000/api/todos
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:6066/api/users/1
+PUT http://localhost:6000/api/todos/1
 Content-Type: application/json
 
 {
@@ -21,4 +21,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:6066/api/users/12
+DELETE http://localhost:6000/api/todos/12
