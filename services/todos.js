@@ -2,8 +2,10 @@ const UnknownError = require('../errors').UnknownError;
 const ModelNotFoundError = require('../errors').ModelNotFoundError;
 
 module.exports = class TodosService {
+  constructor(db) {
+    this.db = db;
+  }
   findOne(id) {
-    throw new ModelNotFoundError('Error');
     return {
       id,
       name: 'test'
