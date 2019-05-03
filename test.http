@@ -1,0 +1,24 @@
+GET http://localhost:6066/api/users
+
+###
+GET http://localhost:6066/api/users/4
+
+###
+POST http://localhost:6066/api/users
+Content-Type: application/json
+
+{
+    "name": "naming"
+}
+
+###
+PUT http://localhost:6066/api/users/1
+Content-Type: application/json
+
+{
+    "id": 22,
+    "name": "mantle"
+}
+
+###
+DELETE http://localhost:6066/api/users/12
