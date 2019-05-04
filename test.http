@@ -8,19 +8,21 @@ POST http://localhost:6000/api/todos
 Content-Type: application/json
 
 {
-    "title": "First Todo",
-    "description": "The description of the first todo",
-    "completed": false 
-}
+    "title": "Update the grocery list",
+    "description": "Located by the fridge. Make sure to use the black marker",
+    "completed": false
+  }
 
 ###
-PUT http://localhost:6000/api/todos/1
+PUT http://localhost:6000/api/todos/b5853ac7-3b91-4207-a127-79c2f2ec87a9
 Content-Type: application/json
 
 {
-    "id": 22,
-    "name": "mantle"
-}
+    "title": "Clean the garage",
+    "description": "Take all the trash out and clear the workbench",
+    "completed": false,
+    "id": "123"
+  }
 
 ###
-DELETE http://localhost:6000/api/todos/12
+DELETE http://localhost:6000/api/todos/0a203c81-34dd-4143-9bb3-870b7b273644

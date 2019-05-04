@@ -1,3 +1,4 @@
+const chalk = require('chalk');
 const uuidv4 = require('uuid/v4');
 const UnknownError = require('../errors').UnknownError;
 const ModelNotFoundError = require('../errors').ModelNotFoundError;
@@ -7,33 +8,68 @@ module.exports = class TodosService {
     this.db = db;
   }
   findOne(id) {
-    return this.db
-      .get('todos')
-      .find({ id })
-      .value();
+    try {
+      const foundTodo = this.db
+        .get('todos')
+        .find({ id })
+        .value();
+      if (!foundTodo) {
+        throw new ModelNotFoundError(`Could not find todo with id ${id}`);
+      }
+      return foundTodo;
+    } catch (e) {
+      throw new UnknownError(
+        `Something went wrong trying to find todo with id ${id}`
+      );
+    }
   }
   findAll() {
-    return this.db.get('todos').value();
+    try {
+      return this.db.get('todos').value();
+    } catch (e) {
+      throw new UnknownError('Something went wrong trying to get all todos');
+    }
   }
   create(todo) {
-    return this.db
-      .get('todos')
-      .push({ ...todo, id: uuidv4() })
-      .write();
+    try {
+      const newTodo = { ...todo, id: uuidv4() };
+      this.db
+        .get('todos')
+        .push(newTodo)
+        .write();
+      return newTodo;
+    } catch (e) {
+      throw new UnknownError(
+        `Something went wrong creating todo "${JSON.stringify(todo)}"`
+      );
+    }
   }
   update(id, todo) {
-    const newTodo = { ...todo };
-    delete newTodo.id;
-    return db
-      .get('todos')
-      .find({ id })
-      .assign(newTodo)
-      .write();
+    try {
+      const newTodo = { ...todo };
+      delete newTodo.id;
+      return this.db
+        .get('todos')
+        .find({ id })
+        .assign(newTodo)
+        .write();
+    } catch (e) {
+      console.log(chalk.default.red(e.message));
+      throw new UnknownError(
+        `Something went wrong updating todo with id ${id}`
+      );
+    }
   }
   delete(id) {
-    return db
-      .get('todos')
-      .remove({ id })
-      .write();
+    try {
+      return this.db
+        .get('todos')
+        .remove({ id })
+        .write();
+    } catch (e) {
+      throw new UnknownError(
+        `Something went wrong deleting todo with id ${id}`
+      );
+    }
   }
 };
