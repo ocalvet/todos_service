@@ -1,14 +1,16 @@
 GET http://localhost:6000/api/todos
 
 ###
-GET http://localhost:6000/api/todos/4
+GET http://localhost:6000/api/todos/0a203c81-34dd-4143-9bb3-870b7b273644
 
 ###
 POST http://localhost:6000/api/todos
 Content-Type: application/json
 
 {
-    "name": "naming"
+    "title": "First Todo",
+    "description": "The description of the first todo",
+    "completed": false 
 }
 
 ###
