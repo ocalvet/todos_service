@@ -1,15 +1,15 @@
 # Todos Service
 
-A service to save todos into a local json database
+A service to manage todos into a local json database
 
 ## Setup
 
-1. Install dependencies `$ npm install`
+1. Install dependencies using npm: `$ npm install` or yarn: `$ yarn`
 2. Copy .env.example into .env and update values
 
 ## How to run
 
-1. Run `$ npm start`
+1. Run with npm: `$ npm start` or yarn: `$ yarn start`
 
 ## Routes
 
@@ -23,13 +23,4 @@ A service to save todos into a local json database
 
 ## Tests
 
-1. To run test `$ npm test`
-
-## Features
-
-1. Separation of concerns within the app (See file structure)
-2. Clean entry point (See server.js)
-3. Use of environment for configuration
-4. Sample tests
-5. Sample custom middleware
-6. Sample error handling
+1. To run test with npm: `$ npm test` or yarn: `$ yarn test`
